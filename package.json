@@ -3,6 +3,7 @@
     "yarn": "^1.22.11"
   },
   "devDependencies": {
-    "bulma": "^0.9.3"
+    "bulma": "^0.9.3",
+    "lunr": "^2.3.9"
   }
 }
