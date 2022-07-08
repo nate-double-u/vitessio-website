@@ -1,3 +1,5 @@
+<!-- partly based on code from https://victoria.dev/blog/add-search-to-hugo-static-sites-with-lunr/ -->
+
 <script>
 window.store = {
     // You can specify your blog section only:
@@ -7,14 +9,16 @@ window.store = {
     "{{ .Permalink }}": {
         // You can customize your searchable fields using any .Page parameters
         "title": "{{ .Title  }}",
-        "tags": [{{ range .Params.Tags }}"{{ . }}",{{ end }}],
+        "version": "{{ .Params.version }}",
         "content": {{ .Content | plainify }}, // Strip out HTML tags
         "url": "{{ .Permalink }}"
     },
     {{ end }}
 }
+
 </script>
 <!-- Include Lunr and code for your search function,
 which you'll write in the next section -->
-<script src="/js/lunr.min.js"></script>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<!-- <script src="/js/lunr.min.js"></script> -->
 <script src="/js/search.js"></script>

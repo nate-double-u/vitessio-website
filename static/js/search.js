@@ -1,5 +1,8 @@
 
+// partly based on code from https://victoria.dev/blog/add-search-to-hugo-static-sites-with-lunr/ -->
+
 function displayResults (results, store) {
+  print('display results!!!!!!!!!!!!!!!!!!!!!!!!!!')
   const searchResults = document.getElementById('results')
   if (results.length) {
     let resultList = ''
@@ -21,6 +24,7 @@ const query = params.get('query')
 
 // Perform a search if there is a query
 if (query) {
+
   // Retain the search input in the form when displaying results
   document.getElementById('search-input').setAttribute('value', query)
 
@@ -29,7 +33,8 @@ if (query) {
     this.field('title', {
       boost: 15
     })
-    this.field('tags')
+    this.field('version')
+    // this.field('tags')
     this.field('content', {
       boost: 10
     })
@@ -38,7 +43,8 @@ if (query) {
       this.add({
         id: key,
         title: window.store[key].title,
-        tags: window.store[key].category,
+        version: window.store[key].version,
+        // tags: window.store[key].category,
         content: window.store[key].content
       })
     }
